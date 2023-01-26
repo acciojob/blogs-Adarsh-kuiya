@@ -15,9 +15,9 @@ public class User {
 
     private String password;
 
-    private String firstName;
+//    private String firstName;
 
-    private String lastName;
+//    private String lastName;
 
     @OneToMany(mappedBy = "user",cascade = CascadeType.ALL)
     private List<Blog> blogsList;
@@ -25,25 +25,15 @@ public class User {
     public User() {
     }
 
-//    public User(int id, String userName, String password, String firstName, String lastName) {
-//        this.id = id;
-//        this.userName = userName;
-//        this.password = password;
-//        this.firstName = firstName;
-//        this.lastName = lastName;
-//    }
-
-//    public int getId() {
-//        return id;
-//    }
-//
-//    public void setId(int id) {
-//        this.id = id;
-//    }
 
 
     public List<Blog> getBlogsList() {
         return blogsList;
+    }
+
+    public User(String userName, String password) {
+        this.userName = userName;
+        this.password = password;
     }
 
     public void setBlogsList(List<Blog> blogsList) {
@@ -66,19 +56,19 @@ public class User {
         this.password = password;
     }
 
-    public String getFirstName() {
-        return firstName;
-    }
+//    public String getFirstName() {
+//        return firstName;
+//    }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
+//    public void setFirstName(String firstName) {
+//        this.firstName = firstName;
+//    }
 
-    public String getLastName() {
-        return lastName;
-    }
+//    public String getLastName() {
+//        return lastName;
+//    }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
+//    public void setLastName(String lastName) {
+//        this.lastName = lastName;
+//    }
 }

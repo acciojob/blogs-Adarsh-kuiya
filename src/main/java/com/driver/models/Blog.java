@@ -16,7 +16,7 @@ public  class Blog {
     private String title;
 
     private String content;
-
+    @Temporal(value = TemporalType.TIMESTAMP)
     private Date pubDate;
 
 
@@ -28,24 +28,16 @@ public  class Blog {
     @OneToMany(mappedBy = "blog",cascade = CascadeType.ALL)
     private List<Image>imageList ;
 
-//    public Blog(int id, String title, String content, Date pubDate) {
-//        this.id = id;
-//        this.title = title;
-//        this.content = content;
-//        this.pubDate = pubDate;
-//    }
 
     public Blog() {
     }
 
-//    public int getId() {
-//        return id;
-//    }
-//
-//    public void setId(int id) {
-//        this.id = id;
-//    }
+    public Blog(int id, String title, String content) {
+        this.id = id;
+        this.content = content;
+        this.title = title;
 
+    }
 
     public List<Image> getImageList() {
         return imageList;

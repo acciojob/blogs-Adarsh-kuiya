@@ -23,14 +23,6 @@ public class Image {
 
 
 
-//    public int getId() {
-//        return id;
-//    }
-//
-//    public void setId(int id) {
-//        this.id = id;
-//    }
-
 
     public Blog getBlog() {
         return blog;
@@ -58,6 +50,11 @@ public class Image {
 
     public Image(int id, String description, String dimension) {
         this.id = id;
+        this.description = description;
+        this.dimension = dimension;
+    }
+
+    public Image(String description, String dimension) {
         this.description = description;
         this.dimension = dimension;
     }
