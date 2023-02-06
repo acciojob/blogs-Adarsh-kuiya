@@ -1,51 +1,45 @@
 package com.driver.models;
 
 import javax.persistence.*;
-import java.util.*;
+import java.util.List;
 
 @Entity
-@Table(name = "User")
+@Table(name="user_table")
 public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private  int id;
 
-    private  String userName;
+    private String username;
 
     private String password;
 
-//    private String firstName;
-
-//    private String lastName;
-
     @OneToMany(mappedBy = "user",cascade = CascadeType.ALL)
-    private List<Blog> blogsList;
-
-    public User() {
-    }
+    private List<Blog> blogList;
 
 
+    public User() {}
 
-    public List<Blog> getBlogsList() {
-        return blogsList;
-    }
-
-    public User(String userName, String password) {
-        this.userName = userName;
+    public User(String username, String password) {
+        this.username = username;
         this.password = password;
     }
 
-    public void setBlogsList(List<Blog> blogsList) {
-        this.blogsList = blogsList;
+    public int getId() {
+        return id;
     }
 
-    public String getUserName() {
-        return userName;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getPassword() {
@@ -56,19 +50,12 @@ public class User {
         this.password = password;
     }
 
-//    public String getFirstName() {
-//        return firstName;
-//    }
+    public List<Blog> getBlogList() {
+        return blogList;
+    }
 
-//    public void setFirstName(String firstName) {
-//        this.firstName = firstName;
-//    }
+    public void setBlogList(List<Blog> blogList) {
+        this.blogList = blogList;
+    }
 
-//    public String getLastName() {
-//        return lastName;
-//    }
-
-//    public void setLastName(String lastName) {
-//        this.lastName = lastName;
-//    }
 }

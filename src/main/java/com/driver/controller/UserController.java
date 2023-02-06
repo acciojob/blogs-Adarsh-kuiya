@@ -14,6 +14,7 @@ public class UserController {
     @Autowired
     UserService userService;
 
+
     @PostMapping("/create")
     public ResponseEntity<Void> createUser(@RequestBody User user) {
         userService.createUser(user);
@@ -28,13 +29,14 @@ public class UserController {
 
     @PutMapping("/update")
     public ResponseEntity<Void> updateUser(@RequestBody User user) {
+
         userService.updateUser(user);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
     @GetMapping("/find/{username}")
     public ResponseEntity<User> findUserByUsername(@PathVariable String username) {
-        User user=userService.findUserByUsername(username);
+        User user =userService.findUserByUsername(username);
         return new ResponseEntity<>(user, HttpStatus.OK);
     }
 }

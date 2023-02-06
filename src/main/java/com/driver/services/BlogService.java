@@ -47,10 +47,10 @@ public class BlogService {
 
         User user=userRepository1.findById(userId).get();
 
-        List<Blog> blogs = user.getBlogsList();
+        List<Blog> blogs = user.getBlogList();
         blogs.add(blog);
 
-        user.setBlogsList(blogs);
+        user.setBlogList(blogs);
 
         blogRepository1.save(blog);
         userRepository1.save(user);
@@ -93,10 +93,10 @@ public class BlogService {
         }
 
         User user = blog.getUser();
-        List<Blog> blogList = user.getBlogsList();
+        List<Blog> blogList = user.getBlogList();
 
         blogList.remove(blog);
-        user.setBlogsList(blogList);
+        user.setBlogList(blogList);
 
         blogRepository1.delete(blog);
         userRepository1.save(user);

@@ -1,36 +1,21 @@
 package com.driver.models;
 
+
+
 import javax.persistence.*;
-import java.util.*;
 
 @Entity
-@Table(name = "Image")
+@Table(name = "image")
 public class Image {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private  int id;
 
     private String description;
 
-    private  String dimension;
 
-
-    @ManyToOne
-    @JoinColumn
-    private Blog blog;
-
-
-
-
-
-    public Blog getBlog() {
-        return blog;
-    }
-
-    public void setBlog(Blog blog) {
-        this.blog = blog;
-    }
+    private String dimensions;
 
     public String getDescription() {
         return description;
@@ -40,25 +25,44 @@ public class Image {
         this.description = description;
     }
 
-    public String getDimension() {
-        return dimension;
+    public String getDimensions() {
+        return dimensions;
     }
 
-    public void setDimension(String dimension) {
-        this.dimension = dimension;
+    public void setDimensions(String dimensions) {
+        this.dimensions = dimensions;
     }
 
-    public Image(int id, String description, String dimension) {
-        this.id = id;
-        this.description = description;
-        this.dimension = dimension;
-    }
-
-    public Image(String description, String dimension) {
-        this.description = description;
-        this.dimension = dimension;
-    }
+    @ManyToOne
+    @JoinColumn
+    private Blog blog;
 
     public Image() {
+    }
+
+    public Blog getBlog() {
+        return blog;
+    }
+
+    public void setBlog(Blog blog) {
+        this.blog = blog;
+    }
+
+    public Image(int id,String description,String dimensions) {
+        this.id=id;
+        this.description = description;
+        this.dimensions=dimensions;
+    }
+    public Image(String description, String dimensions) {
+        this.description = description;
+        this.dimensions = dimensions;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }
